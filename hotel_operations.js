@@ -1,3 +1,21 @@
+var dragged_element,dropped_on_element;
+var text;
+var itemMapping;
+var tableMapping={
+"t1":{
+"items":[],
+"cost":0
+},
+"t2":{
+     "items":[],
+     "cost":0
+     },
+"t3":{
+     "items":[],
+     "cost":0
+     }}
+
+
 function searchTable() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("tableInput");
@@ -15,6 +33,7 @@ function searchTable() {
     }
 }
 function searchItem() {
+getItemJson()
     var input, filter, ul, li, a, i;
     input = document.getElementById("itemInput");
     filter = input.value.toUpperCase();
@@ -31,58 +50,70 @@ function searchItem() {
     }
 }
 function drag(ev,id) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    console.log(ev.target.id);
-        console.log(id);
-
+    console.log(id);
+    dragged_element=id;
+    console.log(ev.dataTransfer.getData("text"));
     console.log("dragged");
 }
 
 function drop(ev,id) {
     ev.preventDefault();
+    dropped_on_element=id
     var data = ev.dataTransfer.getData("text");
-    console.log("dropped");
-    console.log(data);
+//    console.log("dropped");
+    takeAction()
 }
 function allowDrop(ev,id) {
     ev.preventDefault();
 }
-/*
-var modal = document.getElementById('tables');
-
-// Get the button that opens the modal
-var listElement = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-*/
-
-function tableClicked(id)
+function takeAction()
 {
-    console.log(id);
-}
-function popup(mylink, windowname) {
- if (! window.focus)return true;
-  var href; if (typeof(mylink) == 'string') href=mylink;
-   else href=mylink.href;
-  window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
-  return false; }
+var targetItem=dragged_element
+var targetTable=dropped_on_element
+getItemJson("item_json.json")
+//console.log(dropped_on_element)
+//console.log(dragged_element)
+//console.log(tableMapping)
+//console.log(itemMapping)
+for(var eachTable in tableMapping)
+{
+for(var eachItem in itemMapping)
+{
+if(itemMapping[eachItem]["id"]==dragged_element && dropped_on_element==eachTable)
+{
+//console.log(tableMapping.indexOf(eachTable))
+tableMapping[eachTable]["items"].push(itemMapping[eachItem]["id"]);
+tableMapping[eachTable]["cost"]=tableMapping[eachTable]["cost"]+itemMapping[eachItem]["cost"];
 
+}
+
+}
+
+}
+
+console.log(tableMapping);
+
+
+
+}
+function getItemJson(file)
+{
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                itemMapping = JSON.parse(rawFile.responseText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+
+}
 
