@@ -199,3 +199,10 @@ localStorage.setItem("someVarName",JSON.stringify(json));
 console.log(localStorage.getItem("someVarName"))
 
 }
+function deleteAllImages()
+{
+var json=[]
+localStorage.setItem("someVarName",JSON.stringify(json));
+
+
+}
