@@ -72,10 +72,6 @@ function takeAction()
 var targetItem=dragged_element
 var targetTable=dropped_on_element
 getItemJson("item_json.json")
-//console.log(dropped_on_element)
-//console.log(dragged_element)
-//console.log(tableMapping)
-//console.log(itemMapping)
 var current_id
 for(var eachTable in tableMapping)
 {
@@ -152,28 +148,7 @@ function tableClicked(id)
     var table=  document.getElementById ('bill');
     table.innerHTML=""
     console.log(id)
-            // create elements <table> and a <tbody>
-//            var tbl     = document.createElement("table");
-//            var tblBody = document.createElement("tbody");
-//
-//             //cells creation
-//            for (var j = 0; j <= 2; j++) {
-//                var row = document.createElement("tr");
-//
-//                for (var i = 0; i < 4; i++) {
-//                    // create element <td> and text node
-//                    //Make text node the contents of <td> element
-//                    // put <td> at end of the table row
-//                 var cell = document.createElement("td");
-//                      var cellText = document.createTextNode("cell is row "+j+", column "+i);
-//
-//                    cell.appendChild(cellText);
-//                    row.appendChild(cell);
-//                }
-//
-//                //row added to end of table body
-//                tblBody.appendChild(row);
-//            }
+
             getItemJson()
             for(var each in tableMapping)
             {
