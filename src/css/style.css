@@ -1,0 +1,45 @@
+.navbar {
+  border-bottom: #008ed6 3px solid;
+  box-shadow: 2px 2px 5px #008ed6; }
+
+#home-section {
+  background-image: url("../img/work.jpeg");
+  background-size: cover;
+  background-attachment: relative;
+  min-height: 600px; }
+  #home-section .dark-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    background-attachment: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 600px; }
+  #home-section .home-inner {
+    padding-top: 160px; }
+
+#feedback {
+  background-image: url("../img/basic.jpeg");
+  background-size: cover;
+  background-attachment: relative;
+  min-height: 500px; }
+  #feedback .dark-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    background-attachment: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 500px; }
+  #feedback label {
+    color: white; }
+  #feedback input {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    height: 3em; }
+  #feedback textarea {
+    background-color: transparent;
+    border-color: white;
+    color: white; }
+
+#contact span {
+  font-size: 3em; }

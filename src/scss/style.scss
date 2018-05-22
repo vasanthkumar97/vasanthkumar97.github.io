@@ -1,0 +1,69 @@
+// Main Sass File
+$dark-overlay: rgba(0,0,0,0.7);
+$primary-color: #008ed6;
+
+.navbar{
+    border-bottom:$primary-color 3px solid;
+    box-shadow: 2px 2px 5px $primary-color;
+}
+
+
+#home-section{
+    background-image: url('../img/work.jpeg');
+    background-size: cover;
+    background-attachment: relative;
+    min-height: 600px;
+
+    .dark-overlay{
+        background-color: $dark-overlay;
+        background-attachment: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        min-height: 600px;
+    }
+
+    .home-inner{
+        padding-top: 160px;
+    }
+
+}
+
+#feedback{
+    background-image: url('../img/basic.jpeg');
+    background-size: cover;
+    background-attachment: relative;
+    min-height: 500px;
+
+    .dark-overlay{
+        background-color: $dark-overlay;
+        background-attachment: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        min-height: 500px;
+    }
+
+    label{
+        color: white;
+    }
+    input{
+        background-color: transparent;
+        border-color: white;
+        color: white;
+        height: 3em;
+    }
+    textarea{
+        background-color: transparent;
+        border-color: white;
+        color: white;
+    }
+
+
+}
+
+#contact{
+    span{
+        font-size: 3em;
+    }
+}
